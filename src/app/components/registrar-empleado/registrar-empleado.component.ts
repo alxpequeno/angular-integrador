@@ -9,26 +9,26 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 export class RegistrarEmpleadoComponent implements OnInit {
 
   formulario: FormGroup;
-  onSubmit:boolean=false;
+  onSubmit: boolean = false;
 
   constructor() {
     this.formulario = new FormGroup({
-      'nombres': new FormControl('', [Validators.required]),
+      'nombre': new FormControl('', [Validators.required]),
       'apellidos': new FormControl('', [Validators.required]),
       'direccion': new FormControl('', [Validators.required]),
-      'email': new FormControl('', [Validators.required,Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
-      'password': new FormControl('', [Validators.required]),
+      'email': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
+      'clave': new FormControl('', [Validators.required]),
     });
 
-    console.log(this.formulario );
-    
+    console.log(this.formulario);
+
   }
 
   ngOnInit() {
   }
 
   registrar() {
-    this.onSubmit=true;
-    console.log(this.formulario );
+    this.onSubmit = true;
+    console.log(this.formulario);
   }
 }
