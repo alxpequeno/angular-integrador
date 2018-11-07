@@ -7,6 +7,8 @@ import { RegistrarEmpleadoComponent } from './components/registrar-empleado/regi
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
+import { APP_ROUTING } from './app.routes';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]
