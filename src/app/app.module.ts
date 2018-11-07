@@ -8,12 +8,14 @@ import { RegistrarEmpleadoComponent } from './components/registrar-empleado/regi
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { APP_ROUTING } from './app.routes';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    RegistrarEmpleadoComponent
+    RegistrarEmpleadoComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
