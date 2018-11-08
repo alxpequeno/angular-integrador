@@ -7,7 +7,7 @@
         <div class="right menu">
           <a class="item" [routerLink]="['registrar-empleado']" routerLinkActive="active">Registrar Empleado</a>
           <a class="item">Ingresar</a>
-          <a class="item">Salir</a>
+          <a (click)="logout()" class="item">Salir</a>
         </div>
       </div>
       

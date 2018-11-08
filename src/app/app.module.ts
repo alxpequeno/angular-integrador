@@ -5,10 +5,17 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { RegistrarEmpleadoComponent } from './components/registrar-empleado/registrar-empleado.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { APP_ROUTING } from './app.routes';
 import { HomeComponent } from './components/home/home.component';
+
+
+// services
+import { EmpleadoService } from './services/empleado.service';
 
 @NgModule({
   declarations: [
@@ -21,9 +28,13 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    APP_ROUTING
+    APP_ROUTING,
+    HttpClientModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    EmpleadoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
