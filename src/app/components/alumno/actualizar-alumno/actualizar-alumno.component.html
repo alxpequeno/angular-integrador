@@ -1,0 +1,53 @@
+<div class="ui container formulario">
+
+  <form [formGroup]="formulario" (ngSubmit)="actualizar()" class="ui form">
+
+    <h2 class="ui dividing header">Actualizar Alumno</h2>
+
+    <div class="field" [ngClass]="{'error': formulario.controls['nombre'].errors && formulario.controls['nombre'].touched }">
+      <label>Nombre</label>
+      <input formControlName="nombre" type="text" name="nombre" placeholder="Nombre">
+    </div>
+
+    <div class="field" [ngClass]="{'error': formulario.controls['apellidos'].errors && formulario.controls['apellidos'].touched }">
+      <label>Apellidos</label>
+      <input formControlName="apellidos" type="text" name="apellidos" placeholder="Apellidos">
+    </div>
+
+    <div class="field" [ngClass]="{'error': formulario.controls['email'].errors && formulario.controls['email'].touched }">
+      <label>Email</label>
+      <input formControlName="email" type="text" name="email" placeholder="Email">
+    </div>
+
+    <div class="field" [ngClass]="{'error': formulario.controls['clave'].errors && formulario.controls['clave'].touched }">
+      <label>Contraseña</label>
+      <input formControlName="clave" type="password" name="clave" placeholder="Contraseña">
+    </div>
+
+    <button class="fluid ui button primary" type="submit">Editar</button>
+
+    <br>
+    <div id="btnEliminar" class="fluid ui button red" (click)="eliminar()">Eliminar</div>
+
+
+    <!-- Mensajes de errores -->
+    <div class="ui message" *ngIf="onSubmit && formulario.invalid">
+      <div class="header">Existen errores</div>
+      <ul class="list">
+        <li *ngIf="formulario.get('nombre').errors?.required">No ingreso nombre.</li>
+        <li *ngIf="formulario.get('apellidos').errors?.required">No ingreso apellidos.</li>
+        <li *ngIf="formulario.get('email').errors?.required ">No ingreso email.</li>
+        <li *ngIf="formulario.get('clave').errors?.required ">No ingreso password.</li>
+        <li *ngIf="formulario.get('email').errors?.pattern ">El correo no tiene formato correcto.</li>
+      </ul>
+    </div>
+
+
+  </form>
+
+</div>
+
+
+
+
+{{formulario.valid}}

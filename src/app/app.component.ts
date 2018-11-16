@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Usuario } from './interfaces/usuario.interface';
+import { UsuarioService } from './services/usuario.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-integrador';
+
+  usuario: Usuario;
+
+  constructor(private _usuarioService: UsuarioService) {
+    this.usuario = this._usuarioService.getUsuario();
+    console.log(this.usuario);
+  }
 }

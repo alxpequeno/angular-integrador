@@ -1,14 +1,36 @@
 <div class="ui container formulario">
 
-    <div class="ui menu">
-        <div class="header item">Logo</div>
-        <a [routerLink]="['home']" routerLinkActive="active" class="item">Home</a>
-       
-        <div class="right menu">
-          <a class="item" [routerLink]="['registrar-empleado']" routerLinkActive="active">Registrar Empleado</a>
-          <a class="item">Ingresar</a>
-          <a (click)="logout()" class="item">Salir</a>
+  <div class="ui menu">
+    <div class="header item">Logo</div>
+    <a [routerLink]="['home']" routerLinkActive="active" class="item">Home</a>
+
+    <div class="right menu">
+      <div class="ui dropdown item">
+        Registros
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" [routerLink]="['empleado/registrar']" routerLinkActive="active">Registrar Empleado</div>
+          <div class="item" [routerLink]="['alumno/registrar']" routerLinkActive="active">Registrar Alumno</div>
+          <div class="item" [routerLink]="['tutor/registrar']" routerLinkActive="active">Registrar Tutor</div>
         </div>
       </div>
-      
+
+      <div class="ui dropdown item">
+        Perfil
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item" [routerLink]="['empleado/actualizar']" routerLinkActive="active">Actualizar
+            Empleado</div>
+          <div class="item" [routerLink]="['alumno/actualizar']" routerLinkActive="active">Actualizar
+            Alumno</div>
+          <div class="item" [routerLink]="['tutor/actualizar']" routerLinkActive="active">Actualizar
+            Tutor</div>
+        </div>
+      </div>
+
+
+      <a *ngIf="!usuarioLogueado()" class="item" [routerLink]="['ingresar']" routerLinkActive="active">Ingresar</a>
+      <a *ngIf="usuarioLogueado()" (click)="logout()" class="item">Salir</a>
+    </div>
+  </div>
 </div>

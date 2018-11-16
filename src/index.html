@@ -18,5 +18,24 @@
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
   <script src="assets/js/semantic.min.js"></script>
+
+  <script>
+      $(document)
+        .ready(function () {
+          $('.ui.menu .ui.dropdown').dropdown({
+            on: 'hover'
+          });
+          $('.ui.menu a.item')
+            .on('click', function () {
+              $(this)
+                .addClass('active')
+                .siblings()
+                .removeClass('active')
+                ;
+            })
+            ;
+        })
+        ;
+    </script>
 </body>
 </html>
