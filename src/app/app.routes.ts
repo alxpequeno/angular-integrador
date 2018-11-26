@@ -12,6 +12,7 @@ import { EmpleadoGuard } from './guards/empleado.guard';
 import { AlumnoGuard } from './guards/alumno.guard';
 import { TutorGuard } from './guards/tutor.guard';
 import { EvaluarComponent } from './components/empleado/evaluar/evaluar.component';
+import { EvaluarTutorComponent } from './components/empleado/evaluar-tutor/evaluar-tutor.component';
 
 
 const APP_ROUTES: Routes = [
@@ -20,6 +21,7 @@ const APP_ROUTES: Routes = [
     { path: 'empleado/registrar', component: RegistrarEmpleadoComponent },
     { path: 'empleado/actualizar', component: ActualizarEmpleadoComponent, canActivate: [EmpleadoGuard] },
     { path: 'empleado/evaluar', component: EvaluarComponent, canActivate: [EmpleadoGuard] },
+    { path: 'empleado/evaluar/tutor/:id', component: EvaluarTutorComponent, canActivate: [EmpleadoGuard] },
     { path: 'alumno/registrar', component: RegistrarAlumnoComponent },
     { path: 'alumno/actualizar', component: ActualizarAlumnoComponent, canActivate: [AlumnoGuard] },
     { path: 'tutor/registrar', component: RegistrarTutorComponent },

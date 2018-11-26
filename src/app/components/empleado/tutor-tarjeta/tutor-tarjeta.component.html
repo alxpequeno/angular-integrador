@@ -1,4 +1,4 @@
-<div class="ui link cards container">
+<div class="ui cards container">
   <div class="card" *ngFor="let item of items">
     <div class="image">
       <img [src]="item.foto">
@@ -11,7 +11,7 @@
         {{item.fecha}}
       </span>
       <span>
-          <button class="ui blue basic mini button">Evaluar</button>
+        <button (click)="verTutor( item )" type="button" class="ui blue basic mini button">Evaluar</button>
         <!-- <i class="tasks icon"></i>
         Evaluar -->
       </span>

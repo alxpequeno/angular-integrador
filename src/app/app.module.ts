@@ -28,6 +28,7 @@ import { TutorGuard } from './guards/tutor.guard';
 import { EvaluarComponent } from './components/empleado/evaluar/evaluar.component';
 import { TutorTarjetaComponent } from './components/empleado/tutor-tarjeta/tutor-tarjeta.component';
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { EvaluarTutorComponent } from './components/empleado/evaluar-tutor/evaluar-tutor.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { NoimagePipe } from './pipes/noimage.pipe';
     ActualizarTutorComponent,
     EvaluarComponent,
     TutorTarjetaComponent,
-    NoimagePipe
+    NoimagePipe,
+    EvaluarTutorComponent
   ],
   imports: [
     BrowserModule,

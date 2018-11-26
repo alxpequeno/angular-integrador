@@ -16,6 +16,7 @@ export class EmpleadoService {
   actualizarEmpleadoURL: string = Constants._URL + "api/usuario/ActualizarEmpleado";
   eliminarEmpleadoURL: string = Constants._URL + "api/usuario/EliminarEmpleado";
   pendientesURL: string = Constants._URL + "api/usuario/ListaTutoresPendientes";
+  obtenerTutorURL: string = Constants._URL + "api/usuario/GetTutorById/";
 
   constructor(private http: HttpClient, private _usuarioService: UsuarioService) { }
 
@@ -73,7 +74,9 @@ export class EmpleadoService {
 
   getTutoresPendientes() {
     return this.http.get(this.pendientesURL);
+  }
 
-
+  getTutor(id: number) {
+    return this.http.get(this.obtenerTutorURL + id.toString());
   }
 }

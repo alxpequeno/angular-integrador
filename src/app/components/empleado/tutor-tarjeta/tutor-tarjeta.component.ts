@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Tutor } from 'src/app/interfaces/tutor.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tutor-tarjeta',
@@ -9,13 +10,21 @@ import { Tutor } from 'src/app/interfaces/tutor.interface';
 export class TutorTarjetaComponent implements OnInit {
 
   @Input() items: Tutor[];
- 
 
-  constructor() { 
-    
+
+  constructor(private router: Router) {
+
   }
 
   ngOnInit() {
+  }
+
+  verTutor(item: Tutor) {
+
+    let tutorID = item.id;
+
+    this.router.navigate(['empleado', 'evaluar', 'tutor', tutorID]);
+
   }
 
 }

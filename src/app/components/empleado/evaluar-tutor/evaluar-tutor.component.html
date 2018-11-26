@@ -1,0 +1,54 @@
+<div class="container detalle-tutor">
+
+  <div class="ui cards">
+    <div class="card">
+      <div class="content">
+        <img class="right floated large ui image" src="{{tutor?.foto}}">
+        <div class="header">
+          {{tutor?.nombre + ' ' + tutor?.apellido}}
+        </div>
+        <div class="meta">
+          {{tutor?.fecha}}
+        </div>
+        <div class="description">
+          {{tutor?.email}}
+        </div>
+      </div>
+
+      <div class="content">
+        <h4 class="ui sub header">Archivos</h4>
+        <div class="ui small feed">
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                <a>Curriculum</a>
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                <a>Antecedentes</a>
+              </div>
+            </div>
+          </div>
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                <a>Recibo agua o luz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="extra content">
+        <div class="ui two buttons">
+          <div class="ui basic green button">Aceptar</div>
+          <div class="ui basic red button">Rechazar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
