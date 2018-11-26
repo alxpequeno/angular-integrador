@@ -1,7 +1,18 @@
 export interface Tutor {
-    nombreTutor: string;
-    apellidoTutor: string;
-    direccionTutor: string;
-    emailTutor: string;
-    contraseñaTutor: string;
+    id: number;
+    nombre: string;
+    apellido: string;
+    direccion: string;
+    email: string;
+    clave: string;
+    isEmpleado: boolean;
+    isTutor: boolean;
+    isAlumno: boolean;
+    estado: boolean;
+    isAceptado: boolean;
+    foto: string;
+    curriculum: string;
+    antecedentes: string;
+    recibo: string;
+    fecha: string;
 }

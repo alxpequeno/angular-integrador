@@ -3,17 +3,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Empleado } from '../interfaces/empleado.interface';
 import { Constants } from '../app.constants'
+import { UsuarioService } from './usuario.service';
+import { Usuario } from '../interfaces/usuario.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpleadoService {
 
-  empleadoURL: string = Constants._URL + "api/empleado/CrearEmpleado";
-  actualizarEmpleadoURL: string = Constants._URL + "api/empleado/ActualizarEmpleado";
-  eliminarEmpleadoURL: string = Constants._URL + "api/empleado/EliminarEmpleado";
+  empleadoURL: string = Constants._URL + "api/usuario/RegistrarEmpleado";
+  actualizarEmpleadoURL: string = Constants._URL + "api/usuario/ActualizarEmpleado";
+  eliminarEmpleadoURL: string = Constants._URL + "api/usuario/EliminarEmpleado";
+  pendientesURL: string = Constants._URL + "api/usuario/ListaTutoresPendientes";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _usuarioService: UsuarioService) { }
 
   registrarEmpleado(empleado: Empleado) {
     let body = JSON.stringify(empleado);
@@ -30,7 +34,17 @@ export class EmpleadoService {
   }
 
   actualizarEmpleado(empleado: Empleado) {
-    let body = JSON.stringify(empleado);
+
+    var usuario: Usuario = this._usuarioService.usuario;
+
+    usuario.nombre = empleado.nombre;
+    usuario.apellido = empleado.apellido;
+    usuario.direccion = empleado.direccion;
+    usuario.email = empleado.email;
+    usuario.clave = empleado.clave;
+
+
+    let body = JSON.stringify(usuario);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
@@ -55,5 +69,11 @@ export class EmpleadoService {
           return res;
         })
       );
+  }
+
+  getTutoresPendientes() {
+    return this.http.get(this.pendientesURL);
+
+
   }
 }

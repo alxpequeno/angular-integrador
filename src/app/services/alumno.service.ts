@@ -9,9 +9,9 @@ import { map } from 'rxjs/operators';
 })
 export class AlumnoService {
 
-  alumnoURL: string = Constants._URL + "api/alumno/CrearAlumno";
-  actualizarAlumnoURL: string = Constants._URL + "api/alumno/ActualizarAlumno";
-  eliminarAlumnoURL: string = Constants._URL + "api/alumno/EliminarAlumno";
+  alumnoURL: string = Constants._URL + "api/usuario/CrearAlumno";
+  actualizarAlumnoURL: string = Constants._URL + "api/usuario/ActualizarAlumno";
+  eliminarAlumnoURL: string = Constants._URL + "api/usuario/EliminarAlumno";
 
   constructor(private http: HttpClient) { }
 

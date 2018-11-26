@@ -8,17 +8,22 @@ import { ActualizarEmpleadoComponent } from './components/empleado/actualizar-em
 import { ActualizarAlumnoComponent } from './components/alumno/actualizar-alumno/actualizar-alumno.component';
 import { ActualizarTutorComponent } from './components/tutor/actualizar-tutor/actualizar-tutor.component';
 import { RegistrarEmpleadoComponent } from './components/empleado/registrar-empleado/registrar-empleado.component';
+import { EmpleadoGuard } from './guards/empleado.guard';
+import { AlumnoGuard } from './guards/alumno.guard';
+import { TutorGuard } from './guards/tutor.guard';
+import { EvaluarComponent } from './components/empleado/evaluar/evaluar.component';
 
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'ingresar', component: LoginComponent },
     { path: 'empleado/registrar', component: RegistrarEmpleadoComponent },
-    { path: 'empleado/actualizar', component: ActualizarEmpleadoComponent },
+    { path: 'empleado/actualizar', component: ActualizarEmpleadoComponent, canActivate: [EmpleadoGuard] },
+    { path: 'empleado/evaluar', component: EvaluarComponent, canActivate: [EmpleadoGuard] },
     { path: 'alumno/registrar', component: RegistrarAlumnoComponent },
-    { path: 'alumno/actualizar', component: ActualizarAlumnoComponent },
+    { path: 'alumno/actualizar', component: ActualizarAlumnoComponent, canActivate: [AlumnoGuard] },
     { path: 'tutor/registrar', component: RegistrarTutorComponent },
-    { path: 'tutor/actualizar', component: ActualizarTutorComponent },
+    { path: 'tutor/actualizar', component: ActualizarTutorComponent, canActivate: [TutorGuard] },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

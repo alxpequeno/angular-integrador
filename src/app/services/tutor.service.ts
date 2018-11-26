@@ -3,20 +3,21 @@ import { Constants } from '../app.constants';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Tutor } from '../interfaces/tutor.interface';
 import { map } from 'rxjs/operators';
+import { TutorOLD } from '../interfaces/tutorOLD.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TutorService {
 
-  tutorURL: string = Constants._URL + "api/tutor/RegistrarTutor";
-  actualizarTutorURL: string = Constants._URL + "api/tutor/ActualizarTutor";
-  eliminarTutorURL: string = Constants._URL + "api/tutor/EliminarTutor";
+  tutorURL: string = Constants._URL + "api/usuario/RegistrarTutor";
+  actualizarTutorURL: string = Constants._URL + "api/usuario/ActualizarTutor";
+  eliminarTutorURL: string = Constants._URL + "api/usuario/EliminarTutor";
 
 
   constructor(private http: HttpClient) { }
 
-  registrarTutor(tutor: Tutor) {
+  registrarTutor(tutor: TutorOLD) {
     let body = JSON.stringify(tutor);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -30,7 +31,7 @@ export class TutorService {
       );
   }
 
-  actualizarTutor(tutor: Tutor) {
+  actualizarTutor(tutor: TutorOLD) {
     let body = JSON.stringify(tutor);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -44,7 +45,7 @@ export class TutorService {
       );
   }
 
-  eliminarTutor(tutor: Tutor) {
+  eliminarTutor(tutor: TutorOLD) {
     let body = JSON.stringify(tutor);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

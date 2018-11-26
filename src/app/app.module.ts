@@ -22,6 +22,12 @@ import { LoginComponent } from './components/login/login.component';
 import { ActualizarAlumnoComponent } from './components/alumno/actualizar-alumno/actualizar-alumno.component';
 import { ActualizarTutorComponent } from './components/tutor/actualizar-tutor/actualizar-tutor.component';
 import { RegistrarEmpleadoComponent } from './components/empleado/registrar-empleado/registrar-empleado.component';
+import { EmpleadoGuard } from './guards/empleado.guard';
+import { AlumnoGuard } from './guards/alumno.guard';
+import { TutorGuard } from './guards/tutor.guard';
+import { EvaluarComponent } from './components/empleado/evaluar/evaluar.component';
+import { TutorTarjetaComponent } from './components/empleado/tutor-tarjeta/tutor-tarjeta.component';
+import { NoimagePipe } from './pipes/noimage.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +40,10 @@ import { RegistrarEmpleadoComponent } from './components/empleado/registrar-empl
     ActualizarEmpleadoComponent,
     LoginComponent,
     ActualizarAlumnoComponent,
-    ActualizarTutorComponent
+    ActualizarTutorComponent,
+    EvaluarComponent,
+    TutorTarjetaComponent,
+    NoimagePipe
   ],
   imports: [
     BrowserModule,
@@ -45,7 +54,10 @@ import { RegistrarEmpleadoComponent } from './components/empleado/registrar-empl
     HttpModule
   ],
   providers: [
-    EmpleadoService
+    EmpleadoService,
+    EmpleadoGuard,
+    TutorGuard,
+    AlumnoGuard
   ],
   bootstrap: [AppComponent]
 })

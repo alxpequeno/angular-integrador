@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Tutor } from 'src/app/interfaces/tutor.interface';
 import { Router } from '@angular/router';
 import { TutorService } from 'src/app/services/tutor.service';
+import { TutorOLD } from 'src/app/interfaces/tutorOLD.interface';
 
 @Component({
   selector: 'app-actualizar-tutor',
@@ -13,7 +14,7 @@ export class ActualizarTutorComponent implements OnInit {
 
   formulario: FormGroup;
   onSubmit: boolean = false;
-  tutor: Tutor;
+  tutor: TutorOLD;
 
   constructor(private router: Router, private _tutorService: TutorService) {
     this.formulario = new FormGroup({

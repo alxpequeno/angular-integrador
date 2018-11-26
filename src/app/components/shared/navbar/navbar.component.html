@@ -3,6 +3,7 @@
   <div class="ui menu">
     <div class="header item">Logo</div>
     <a [routerLink]="['home']" routerLinkActive="active" class="item">Home</a>
+    <a *ngIf="isEmpleado()" class="item" [routerLink]="['empleado/evaluar']" routerLinkActive="active">Evaluar Tutores</a>
 
     <div class="right menu">
       <div class="ui dropdown item">
@@ -19,12 +20,12 @@
         Perfil
         <i class="dropdown icon"></i>
         <div class="menu">
-          <div class="item" [routerLink]="['empleado/actualizar']" routerLinkActive="active">Actualizar
+          <div *ngIf="isEmpleado()" class="item" [routerLink]="['empleado/actualizar']" routerLinkActive="active">Actualizar
             Empleado</div>
-          <div class="item" [routerLink]="['alumno/actualizar']" routerLinkActive="active">Actualizar
-            Alumno</div>
-          <div class="item" [routerLink]="['tutor/actualizar']" routerLinkActive="active">Actualizar
+          <div *ngIf="isTutor()" class="item" [routerLink]="['tutor/actualizar']" routerLinkActive="active">Actualizar
             Tutor</div>
+          <div *ngIf="isAlumno()" class="item" [routerLink]="['alumno/actualizar']" routerLinkActive="active">Actualizar
+            Alumno</div>
         </div>
       </div>
 

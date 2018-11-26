@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Empleado } from 'src/app/interfaces/empleado.interface';
 import { Router } from '@angular/router';
 import { EmpleadoService } from 'src/app/services/empleado.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-actualizar-empleado',
@@ -15,7 +16,7 @@ export class ActualizarEmpleadoComponent implements OnInit {
   onSubmit: boolean = false;
   empleado: Empleado;
 
-  constructor(private router: Router, private _empleadoService: EmpleadoService) {
+  constructor(private router: Router, private _empleadoService: EmpleadoService, private _usuarioService : UsuarioService) {
     this.formulario = new FormGroup({
       'nombre': new FormControl('', [Validators.required]),
       'apellidos': new FormControl('', [Validators.required]),
@@ -55,18 +56,7 @@ export class ActualizarEmpleadoComponent implements OnInit {
 
   eliminar() {
     if (confirm("¿Seguro que desea eliminar el usuario?")) {
-      console.log("Usuario Eliminado");
-      this.empleado = {
-        nombre: this.formulario.controls['nombre'].value,
-        apellido: this.formulario.controls['apellidos'].value,
-        direccion: this.formulario.controls['direccion'].value,
-        email: this.formulario.controls['email'].value,
-        clave: this.formulario.controls['clave'].value
-      }
-
-      console.log(this.empleado);
-
-      this._empleadoService.eliminarEmpleado(this.empleado)
+      this._usuarioService.eliminarUsuario()
         .subscribe(data => {
           console.log(data);
           this.router.navigate(['/home'])

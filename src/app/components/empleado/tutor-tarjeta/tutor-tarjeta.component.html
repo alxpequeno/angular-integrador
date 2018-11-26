@@ -1,0 +1,20 @@
+<div class="ui link cards container">
+  <div class="card" *ngFor="let item of items">
+    <div class="image">
+      <img [src]="item.foto">
+    </div>
+    <div class="content">
+      <div class="header">{{item.nombre + ' ' + item.apellido}}</div>
+    </div>
+    <div class="extra content">
+      <span class="right floated">
+        {{item.fecha}}
+      </span>
+      <span>
+          <button class="ui blue basic mini button">Evaluar</button>
+        <!-- <i class="tasks icon"></i>
+        Evaluar -->
+      </span>
+    </div>
+  </div>
+</div>
