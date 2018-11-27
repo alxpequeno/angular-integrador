@@ -1,2 +1,13 @@
 <br><br>
-<app-tutor-tarjeta [items]="tutores" ></app-tutor-tarjeta>
+
+<div class="ui container">
+<div *ngIf="!isTutoresPendientes()" class="ui info message">
+    <i class="close icon"></i>
+    <div class="header">
+        No hay tutores pendientes para evaluar.
+    </div>
+</div>
+
+<app-tutor-tarjeta [items]="tutores"></app-tutor-tarjeta>
+
+</div>

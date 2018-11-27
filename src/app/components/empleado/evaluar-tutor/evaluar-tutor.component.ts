@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 import { Tutor } from 'src/app/interfaces/tutor.interface';
 
@@ -12,7 +12,7 @@ export class EvaluarTutorComponent implements OnInit {
 
   tutor: Tutor = null;
 
-  constructor(private activatedRoute: ActivatedRoute, private empleadoService: EmpleadoService) {
+  constructor(private activatedRoute: ActivatedRoute, private empleadoService: EmpleadoService, private router: Router) {
 
     this.activatedRoute.params.subscribe(params => {
 
@@ -20,7 +20,7 @@ export class EvaluarTutorComponent implements OnInit {
 
       this.getTutor(id);
 
-      
+
     })
   }
 
@@ -34,6 +34,20 @@ export class EvaluarTutorComponent implements OnInit {
         this.tutor = tutor;
         console.log(this.tutor);
       });
+  }
+
+  aceptarTutor() {
+    this.empleadoService.aceptarTutor(this.tutor)
+      .subscribe(data => {
+
+        alert(data);
+        this.router.navigate(['/empleado', 'evaluar']);
+
+      });
+  }
+
+  rechazarTutor() {
+    this.router.navigate(['/empleado', 'evaluar']);
   }
 
 }

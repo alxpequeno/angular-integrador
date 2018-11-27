@@ -6,6 +6,7 @@ import { Constants } from '../app.constants'
 import { UsuarioService } from './usuario.service';
 import { Usuario } from '../interfaces/usuario.interface';
 import { Observable } from 'rxjs';
+import { Tutor } from '../interfaces/tutor.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,8 @@ export class EmpleadoService {
   eliminarEmpleadoURL: string = Constants._URL + "api/usuario/EliminarEmpleado";
   pendientesURL: string = Constants._URL + "api/usuario/ListaTutoresPendientes";
   obtenerTutorURL: string = Constants._URL + "api/usuario/GetTutorById/";
+  aceptarTutorURL: string = Constants._URL + "api/usuario/AceptarTutor";
+
 
   constructor(private http: HttpClient, private _usuarioService: UsuarioService) { }
 
@@ -78,5 +81,19 @@ export class EmpleadoService {
 
   getTutor(id: number) {
     return this.http.get(this.obtenerTutorURL + id.toString());
+  }
+
+  aceptarTutor(tutor:Tutor) {
+    let body = JSON.stringify(tutor);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post(this.aceptarTutorURL, body, { headers })
+      .pipe(
+        map(res => {
+          return res;
+        })
+      );
   }
 }
