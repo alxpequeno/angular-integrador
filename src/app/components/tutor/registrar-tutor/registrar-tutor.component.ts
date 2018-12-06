@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Tutor } from 'src/app/interfaces/tutor.interface';
 import { Router } from '@angular/router';
 import { TutorService } from 'src/app/services/tutor.service';
-import { TutorOLD } from 'src/app/interfaces/tutorOLD.interface';
 
 @Component({
   selector: 'app-registrar-tutor',
@@ -14,7 +13,7 @@ export class RegistrarTutorComponent implements OnInit {
 
   formulario: FormGroup;
   onSubmit: boolean = false;
-  tutor: TutorOLD;
+  tutor: Tutor;
 
   constructor(private router: Router, private _tutorService: TutorService) {
     this.formulario = new FormGroup({
@@ -36,11 +35,11 @@ export class RegistrarTutorComponent implements OnInit {
     console.log(this.formulario);
 
     this.tutor = {
-      nombreTutor: this.formulario.controls['nombre'].value,
-      apellidoTutor: this.formulario.controls['apellidos'].value,
-      direccionTutor: this.formulario.controls['direccion'].value,
-      emailTutor: this.formulario.controls['email'].value,
-      contraseñaTutor: this.formulario.controls['clave'].value
+      nombre: this.formulario.controls['nombre'].value,
+      apellido: this.formulario.controls['apellidos'].value,
+      direccion: this.formulario.controls['direccion'].value,
+      email: this.formulario.controls['email'].value,
+      clave: this.formulario.controls['clave'].value
     }
 
     console.log(this.tutor);

@@ -17,7 +17,7 @@ export class TutorService {
 
   constructor(private http: HttpClient) { }
 
-  registrarTutor(tutor: TutorOLD) {
+  registrarTutor(tutor: Tutor) {
     let body = JSON.stringify(tutor);
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

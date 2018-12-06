@@ -14,6 +14,11 @@
       <input formControlName="apellidos" type="text" name="apellidos" placeholder="Apellidos">
     </div>
 
+    <div class="field" [ngClass]="{'error': formulario.controls['direccion'].errors && formulario.controls['direccion'].touched }">
+      <label>Dirección</label>
+      <input formControlName="direccion" type="text" name="direccion" placeholder="Dirección">
+    </div>
+
     <div class="field" [ngClass]="{'error': formulario.controls['email'].errors && formulario.controls['email'].touched }">
       <label>Email</label>
       <input formControlName="email" type="text" name="email" placeholder="Email">
@@ -32,6 +37,7 @@
       <ul class="list">
         <li *ngIf="formulario.get('nombre').errors?.required">No ingreso nombre.</li>
         <li *ngIf="formulario.get('apellidos').errors?.required">No ingreso apellidos.</li>
+        <li *ngIf="formulario.get('direccion').errors?.required">No ingreso dirección.</li>
         <li *ngIf="formulario.get('email').errors?.required ">No ingreso email.</li>
         <li *ngIf="formulario.get('clave').errors?.required ">No ingreso password.</li>
         <li *ngIf="formulario.get('email').errors?.pattern ">El correo no tiene formato correcto.</li>

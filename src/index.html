@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>AngularIntegrador</title>
@@ -9,33 +10,37 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <link rel="stylesheet" type="text/css" href="assets/css/semantic.min.css">
+  <link rel="stylesheet" href="assets/css/calendar.min.css" />
 </head>
-<body>
-  <app-root></app-root>
 
-  <script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
+<body>
+  <div class="ui container">
+    <app-root></app-root>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
   <script src="assets/js/semantic.min.js"></script>
+  <script type="text/javascript" src="assets/js/calendar.min.js"></script>
 
   <script>
-      $(document)
-        .ready(function () {
-          $('.ui.menu .ui.dropdown').dropdown({
-            on: 'hover'
-          });
-          $('.ui.menu a.item')
-            .on('click', function () {
-              $(this)
-                .addClass('active')
-                .siblings()
-                .removeClass('active')
-                ;
-            })
-            ;
-        })
-        ;
-    </script>
+    $(document)
+      .ready(function () {
+        $('.ui.menu .ui.dropdown').dropdown({
+          on: 'hover'
+        });
+        $('.ui.menu a.item')
+          .on('click', function () {
+            $(this)
+              .addClass('active')
+              .siblings()
+              .removeClass('active')
+              ;
+          })
+          ;
+      })
+      ;
+  </script>
 </body>
+
 </html>

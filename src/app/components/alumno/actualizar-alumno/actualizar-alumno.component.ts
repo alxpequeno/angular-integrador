@@ -19,6 +19,7 @@ export class ActualizarAlumnoComponent implements OnInit {
     this.formulario = new FormGroup({
       'nombre': new FormControl('', [Validators.required]),
       'apellidos': new FormControl('', [Validators.required]),
+      'direccion': new FormControl('', [Validators.required]),
       'email': new FormControl('', [Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$")]),
       'clave': new FormControl('', [Validators.required]),
     });
@@ -34,10 +35,11 @@ export class ActualizarAlumnoComponent implements OnInit {
     console.log(this.formulario);
 
     this.alumno = {
-      nombreAlumno: this.formulario.controls['nombre'].value,
-      apellidoAlumno: this.formulario.controls['apellidos'].value,
-      emailAlumno: this.formulario.controls['email'].value,
-      contraseñaAlumno: this.formulario.controls['clave'].value
+      nombre: this.formulario.controls['nombre'].value,
+      apellido: this.formulario.controls['apellidos'].value,
+      direccion: this.formulario.controls['direccion'].value,
+      email: this.formulario.controls['email'].value,
+      clave: this.formulario.controls['clave'].value
     }
 
     console.log(this.alumno);
@@ -58,10 +60,11 @@ export class ActualizarAlumnoComponent implements OnInit {
     if (confirm("¿Seguro que desea eliminar el usuario?")) {
         console.log("Usuario Eliminado");
         this.alumno = {
-          nombreAlumno: this.formulario.controls['nombre'].value,
-          apellidoAlumno: this.formulario.controls['apellidos'].value,
-          emailAlumno: this.formulario.controls['email'].value,
-          contraseñaAlumno: this.formulario.controls['clave'].value
+          nombre: this.formulario.controls['nombre'].value,
+          apellido: this.formulario.controls['apellidos'].value,
+          direccion: this.formulario.controls['direccion'].value,
+          email: this.formulario.controls['email'].value,
+          clave: this.formulario.controls['clave'].value
         }
     
         console.log(this.alumno);

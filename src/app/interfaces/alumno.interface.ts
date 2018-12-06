@@ -1,6 +1,7 @@
 export interface Alumno {
-    nombreAlumno: string;
-    apellidoAlumno: string;
-    emailAlumno: string;
-    contraseñaAlumno: string;
+    nombre: string;
+    apellido: string;
+    direccion: string;
+    email?: string;
+    clave: string;
 }

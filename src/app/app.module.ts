@@ -29,6 +29,8 @@ import { EvaluarComponent } from './components/empleado/evaluar/evaluar.componen
 import { TutorTarjetaComponent } from './components/empleado/tutor-tarjeta/tutor-tarjeta.component';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { EvaluarTutorComponent } from './components/empleado/evaluar-tutor/evaluar-tutor.component';
+import { PublicarTutoriaComponent } from './components/tutor/publicar-tutoria/publicar-tutoria.component';
+import { MisTutoriasComponent } from './components/tutor/mis-tutorias/mis-tutorias.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { EvaluarTutorComponent } from './components/empleado/evaluar-tutor/evalu
     EvaluarComponent,
     TutorTarjetaComponent,
     NoimagePipe,
-    EvaluarTutorComponent
+    EvaluarTutorComponent,
+    PublicarTutoriaComponent,
+    MisTutoriasComponent
   ],
   imports: [
     BrowserModule,

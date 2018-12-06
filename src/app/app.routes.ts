@@ -13,6 +13,8 @@ import { AlumnoGuard } from './guards/alumno.guard';
 import { TutorGuard } from './guards/tutor.guard';
 import { EvaluarComponent } from './components/empleado/evaluar/evaluar.component';
 import { EvaluarTutorComponent } from './components/empleado/evaluar-tutor/evaluar-tutor.component';
+import { PublicarTutoriaComponent } from './components/tutor/publicar-tutoria/publicar-tutoria.component';
+import { MisTutoriasComponent } from './components/tutor/mis-tutorias/mis-tutorias.component';
 
 
 const APP_ROUTES: Routes = [
@@ -26,6 +28,8 @@ const APP_ROUTES: Routes = [
     { path: 'alumno/actualizar', component: ActualizarAlumnoComponent, canActivate: [AlumnoGuard] },
     { path: 'tutor/registrar', component: RegistrarTutorComponent },
     { path: 'tutor/actualizar', component: ActualizarTutorComponent, canActivate: [TutorGuard] },
+    { path: 'tutor/publicar-tutoria', component: PublicarTutoriaComponent, canActivate: [TutorGuard] },
+    { path: 'tutor/mis-tutorias', component: MisTutoriasComponent, canActivate: [TutorGuard] },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

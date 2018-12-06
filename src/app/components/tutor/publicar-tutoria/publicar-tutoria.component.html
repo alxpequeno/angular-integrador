@@ -1,0 +1,89 @@
+<form [formGroup]="formulario" class="ui form formulario">
+  <h1>Registrar Tutoría</h1>
+  <div class="two fields">
+    <div class="field" [ngClass]="{'error': formulario.controls['titulo'].errors && formulario.controls['titulo'].touched }">
+      <label>Título</label>
+      <input formControlName="titulo" name="titulo" type="text" placeholder="Título">
+    </div>
+    <div class="field" [ngClass]="{'error': formulario.controls['categoria'].errors && formulario.controls['categoria'].touched }">
+      <label>Categoría</label>
+      <input formControlName="categoria" name="categoria" type="text" placeholder="Categoría">
+    </div>
+  </div>
+  <div class="two fields">
+    <div class="field" [ngClass]="{'error': formulario.controls['foto'].errors && formulario.controls['foto'].touched }">
+      <label>Imagen</label>
+      <div class="ui labeled input">
+        <div class="ui label icon">
+          <i class="linkify icon"></i>
+        </div>
+        <input formControlName="foto" name="foto" type="text" placeholder="imagen.png">
+      </div>
+    </div>
+    <div class="field" [ngClass]="{'error': formulario.controls['precio'].errors && formulario.controls['precio'].touched }">
+      <label>Precio</label>
+      <div class="ui right labeled input">
+        <label for="precio" class="ui label">S/.</label>
+        <input formControlName="precio" name="precio" type="text" placeholder="Precio" id="precio">
+        <div class="ui basic label">.00</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two fields">
+    <div class="field" [ngClass]="{'error': formulario.controls['fecha'].errors && formulario.controls['fecha'].touched }">
+      <label>Fecha</label>
+      <div class="ui calendar" id="fecha">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input formControlName="fecha" name="fecha" type="text" placeholder="Fecha">
+        </div>
+      </div>
+    </div>
+
+    <div class="field" [ngClass]="{'error': formulario.controls['hora'].errors && formulario.controls['hora'].touched }">
+      <label>Hora</label>
+      <div class="ui calendar" id="hora">
+        <div class="ui input left icon">
+          <i class="calendar icon"></i>
+          <input formControlName="hora" name="hora" type="text" placeholder="Hora">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two fields">
+  <div class="field" [ngClass]="{'error': formulario.controls['ubicacion'].errors && formulario.controls['ubicacion'].touched }">
+    <label>Ubicación</label>
+    <input formControlName="ubicacion" name="ubicacion" type="text" placeholder="Ubicación">
+  </div>
+  <div class="field" [ngClass]="{'error': formulario.controls['cantidad'].errors && formulario.controls['cantidad'].touched }">
+    <label>Cantidad</label>
+    <input formControlName="cantidad" name="cantidad" type="number" placeholder="Cantidad de Alumnos">
+  </div>
+</div>
+
+  <div class="field" [ngClass]="{'error': formulario.controls['descripcion'].errors && formulario.controls['descripcion'].touched }">
+    <label>Descripción</label>
+    <textarea rows="2" formControlName="descripcion" name="descripcion"></textarea>
+  </div>
+
+  <button class="fluid ui button primary" type="submit" (click)="publicarTutoria()">Registrar</button>
+
+
+  <!-- Mensajes de errores -->
+  <div class="ui message" *ngIf="onSubmit && formulario.invalid">
+    <div class="header">Existen errores</div>
+    <ul class="list">
+      <li *ngIf="formulario.get('titulo').errors?.required">No ingreso Título.</li>
+      <li *ngIf="formulario.get('categoria').errors?.required">No ingreso Categoría.</li>
+      <li *ngIf="formulario.get('foto').errors?.required">No ingreso Foto.</li>
+      <li *ngIf="formulario.get('precio').errors?.required">No ingreso Precio.</li>
+      <li *ngIf="formulario.get('fecha').errors?.required">No ingreso Fecha.</li>
+      <li *ngIf="formulario.get('hora').errors?.required">No ingreso Hora.</li>
+      <li *ngIf="formulario.get('ubicacion').errors?.required">No ingreso Ubicación.</li>
+      <li *ngIf="formulario.get('cantidad').errors?.required">No ingreso Cantidad de Alumnos.</li>
+      <li *ngIf="formulario.get('descripcion').errors?.required">No ingreso Descripción.</li>
+    </ul>
+  </div>
+</form>
