@@ -45,6 +45,7 @@ export class ActualizarTutoriaComponent implements OnInit {
   actualizarTutoria() {
     if (this.formulario.invalid) {
       alert("Se encontraron errores, revisar por favor.");
+      return;
     }
 
 

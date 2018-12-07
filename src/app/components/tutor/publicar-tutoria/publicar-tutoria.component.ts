@@ -52,6 +52,24 @@ export class PublicarTutoriaComponent implements OnInit {
         }
       });
 
+    /* $('#fecha').calendar({
+      type: 'date',
+      minDate: today,
+      formatter: {
+        date: function (date, settings) {
+          if (!date) return '';
+          var day = date.getDate();
+          var month = date.getMonth() + 1;
+          var year = date.getFullYear();
+          return day + '/' + month + '/' + year;
+        }
+      },
+      onChange: function (date, text) {
+        var newValue = text;
+        alert(newValue);
+       },
+    }); */
+
     /* $(document).ready(function () {
       $('#fecha').calendar({
         type: 'date',
@@ -65,14 +83,16 @@ export class PublicarTutoriaComponent implements OnInit {
 
 
   publicarTutoria() {
+    console.log(this.formulario);
 
     if (this.formulario.invalid) {
       alert("Se encontraron errores, revisar por favor.");
+      return;
     }
 
 
     this.onSubmit = true;
-    console.log(this.formulario);
+
 
     this.tutoria = {
       tituloTutoria: this.formulario.controls['titulo'].value,
@@ -92,7 +112,7 @@ export class PublicarTutoriaComponent implements OnInit {
     this._tutoriaService.registrarTutoria(this.tutoria)
       .subscribe(data => {
         console.log(data);
-        this.router.navigate(['/tutor','mis-tutorias']);
+        this.router.navigate(['/tutor', 'mis-tutorias']);
       },
         error => console.error(error));
 
