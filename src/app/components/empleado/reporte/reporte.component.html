@@ -1,0 +1,14 @@
+<table class="ui right aligned table tabla">
+  <thead>
+    <th class="left aligned">Ranking</th>
+    <th>Categoría</th>
+    <th>Asistentes</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of rankings">
+      <td class="left aligned">{{r?.ranking}}</td>
+      <td>{{r?.categoria}}</td>
+      <td>{{r?.asistentes}}</td>
+    </tr>
+  </tbody>
+</table>

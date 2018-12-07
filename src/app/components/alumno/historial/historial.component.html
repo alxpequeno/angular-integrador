@@ -1,0 +1,31 @@
+<div class="ui container listado">
+  <div class="ui relaxed divided items">
+    <div class="item" *ngFor="let t of tutorias">
+      <div class="ui small image">
+        <img src="{{t?.Foto}}">
+      </div>
+      <div class="content">
+        <div class="ui right floated big label">
+          S/.{{t?.precioTutoria}}
+        </div>
+
+        <a class="header">{{t?.tituloTutoria}}</a>
+        <div class="meta">
+          <a>{{t?.horaTutoria}} - {{t?.fechaTutoria}}</a>
+          
+        </div>
+        <div class="description">
+          {{t?.descripcionTutoria}}
+        </div>
+
+        <div class="extra">
+          <a class="ui black right ribbon label">{{t.estadoTutoria==true ? "En Proceso":"Culminado"}}</a>
+
+          <img src="{{t?.tutor.foto}}" class="ui circular avatar image" style="margin-right: 5px;">
+          {{t?.tutor.nombre}}
+          <a class="ui teal tag label" style="margin-left: 30px;">{{t?.categoriaTutoria}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

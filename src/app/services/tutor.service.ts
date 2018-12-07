@@ -13,9 +13,15 @@ export class TutorService {
   tutorURL: string = Constants._URL + "api/usuario/RegistrarTutor";
   actualizarTutorURL: string = Constants._URL + "api/usuario/ActualizarTutor";
   eliminarTutorURL: string = Constants._URL + "api/usuario/EliminarTutor";
+  obtenerTutorURL: string = Constants._URL + "api/usuario/GetTutorById/";
+
 
 
   constructor(private http: HttpClient) { }
+
+  obtenerTutorID(idTutor: number) {
+    return this.http.get(this.obtenerTutorURL + idTutor.toString());
+  }
 
   registrarTutor(tutor: Tutor) {
     let body = JSON.stringify(tutor);

@@ -1,0 +1,63 @@
+<form [formGroup]="formulario" class="ui form formTarjeta">
+  <h4 class="ui dividing header">Información de tarjeta de Crédito / Débito</h4>
+  <div class="field">
+    <label>Nombre</label>
+    <input formControlName="titular" name="titular" type="text" placeholder="Ingrese nombre del titular">
+  </div>
+  <div class="fields">
+    <div class="ten wide field">
+
+      <label>Número de Tarjeta</label>
+      <input type="text" formControlName="numero" name="numero" maxlength="16" placeholder="XXXX-XXXX-XXXX-XXXX">
+    </div>
+    <div class="six wide field">
+      <label>Monto</label>
+      <label class="ui huge blue label">{{precio_tutoria}}</label>
+    </div>
+  </div>
+  <div class="fields">
+    <div class="seven wide field">
+      <label>Tipo Tarjeta</label>
+      <select class="ui selection dropdown" formControlName="tipo" name="tipo">
+
+          <option value="" class="item">Seleccione</option>
+        <option value="1" class="item">Visa</option>
+        <option value="2" class="item">Mastercard</option>
+        <option value="3" class="item">American Express</option>
+        <option value="4" class="item">Diners Club</option>
+
+      </select>
+
+    </div>
+    <div class="three wide field">
+      <label>CVC</label>
+      <input type="text" formControlName="cvv" name="cvv" maxlength="3" placeholder="CVC">
+    </div>
+    <div class="six wide field">
+      <label>Expiración</label>
+      <div class="two fields">
+        <div class="field">
+          <select class="ui fluid search dropdown" formControlName="mes" name="mes">
+            <option value="">Mes</option>
+            <option value="01">Enero</option>
+            <option value="02">Febrero</option>
+            <option value="03">Marzo</option>
+            <option value="04">Abril</option>
+            <option value="05">Mayo</option>
+            <option value="06">Junio</option>
+            <option value="07">Julio</option>
+            <option value="08">Agosto</option>
+            <option value="09">Setiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
+          </select>
+        </div>
+        <div class="field">
+          <input type="text" formControlName="ano" name="ano" maxlength="4" placeholder="Año">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui fluid large green submit button" tabindex="0" (click)="pagar()">Pagar</div>
+</form>

@@ -1,13 +1,16 @@
 <div class=" formulario">
 
   <div class="ui menu">
-    <div class="header item">Logo</div>
-    <a [routerLink]="['home']" routerLinkActive="active" class="item">Home</a>
+    <div class="header item">Educame.pe</div>
+    <a [routerLink]="['home']" routerLinkActive="active" class="item">Inicio</a>
     <a *ngIf="isEmpleado()" class="item" [routerLink]="['empleado/evaluar']" routerLinkActive="active">Evaluar Tutores</a>
+    <a *ngIf="isEmpleado()" class="item" [routerLink]="['empleado/reporte']" routerLinkActive="active">Reporte</a>
     <a *ngIf="isTutor()" class="item" [routerLink]="['tutor/publicar-tutoria']" routerLinkActive="active">Publicar
       Tutoria</a>
-      <a *ngIf="isTutor()" class="item" [routerLink]="['tutor/mis-tutorias']" routerLinkActive="active">Mis
-        Tutorias</a>
+    <a *ngIf="isTutor()" class="item" [routerLink]="['tutor/mis-tutorias']" routerLinkActive="active">Mis
+      Tutorias</a>
+    <a *ngIf="isAlumno()" class="item" [routerLink]="['alumno/listado-tutorias']" routerLinkActive="active">Tutorias</a>
+    <a *ngIf="isAlumno()" class="item" [routerLink]="['alumno/historial']" routerLinkActive="active">Historial</a>
 
 
     <div class="right menu">

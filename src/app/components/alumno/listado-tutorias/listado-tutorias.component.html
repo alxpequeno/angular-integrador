@@ -1,0 +1,94 @@
+<div class="ui container listado">
+  <div class="ui grid">
+    <div class="two wide column left floated">
+
+      <form>
+        <div class="ui vertical menu">
+          <div class="item">
+            <div class="ui input"><input type="text" name="tituloTutoria" placeholder="Buscar..." [(ngModel)]="t.tituloTutoria"></div>
+          </div>
+          <div class="item">
+
+            <div class="grouped fields">
+              <label>Categorias</label>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input value="java" type="radio" name="categoria" (change)="categoriaChange($event)">
+                  <label>Java</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input value="sql" type="radio" name="categoria" (change)="categoriaChange($event)">
+                  <label>SQL</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input value="net" type="radio" name="categoria" (change)="categoriaChange($event)">
+                  <label>.NET</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <a class="item">
+            <div class="ui calendar" id="fecha">
+              <div class="ui input left icon">
+                <i class="calendar icon"></i>
+                <input type="text" placeholder="Fecha" [(ngModel)]="t.fechaTutoria" name="fecha">
+              </div>
+            </div>
+          </a>
+          <button type="button" class="ui blue button fluid" (click)="filtrar()">Filtrar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="twelve wide column right floated">
+        <div *ngIf="!isTutorias()" class="ui info message">
+            <i class="close icon"></i>
+            <div class="header">
+                No se encontraron tutorias disponibles.
+            </div>
+        </div>
+
+      <div class="ui relaxed divided items">
+        <div class="item" *ngFor="let t of tutorias;trackBy: trackByFn">
+          <div class="ui small image">
+            <img src="{{t?.Foto}}">
+          </div>
+          <div class="content">
+            <div class="ui right floated big label">
+              S/.{{t?.precioTutoria}}
+            </div>
+
+            <a class="header">{{t?.tituloTutoria}}</a>
+            <div class="meta">
+              <a>{{t?.horaTutoria}} - {{t?.fechaTutoria}}</a>
+              <a>Quedan {{t?.cantidadMaxima - t?.cantidadAlumnos}} asientos</a>
+            </div>
+            <div class="description">
+              {{t?.descripcionTutoria}}
+            </div>
+
+            <div class="extra">
+              <div class="ui right floated primary button" (click)="matricular(t.idTutoria,t.precioTutoria)">
+                Matricularme
+                <i class="right chevron icon"></i>
+              </div>
+
+              <img src="{{t?.tutor.foto}}" class="ui circular avatar image" style="margin-right: 25px;">
+              {{t?.tutor.nombre}}
+              <a class="ui teal tag label" style="margin-right: 30px;margin-left: 30px;">{{t?.categoriaTutoria}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>

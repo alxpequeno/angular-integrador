@@ -31,6 +31,11 @@ import { NoimagePipe } from './pipes/noimage.pipe';
 import { EvaluarTutorComponent } from './components/empleado/evaluar-tutor/evaluar-tutor.component';
 import { PublicarTutoriaComponent } from './components/tutor/publicar-tutoria/publicar-tutoria.component';
 import { MisTutoriasComponent } from './components/tutor/mis-tutorias/mis-tutorias.component';
+import { ListadoTutoriasComponent } from './components/alumno/listado-tutorias/listado-tutorias.component';
+import { PagarTutoriaComponent } from './components/alumno/pagar-tutoria/pagar-tutoria.component';
+import { HistorialComponent } from './components/alumno/historial/historial.component';
+import { ReporteComponent } from './components/empleado/reporte/reporte.component';
+import { ActualizarTutoriaComponent } from './components/tutor/actualizar-tutoria/actualizar-tutoria.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +54,12 @@ import { MisTutoriasComponent } from './components/tutor/mis-tutorias/mis-tutori
     NoimagePipe,
     EvaluarTutorComponent,
     PublicarTutoriaComponent,
-    MisTutoriasComponent
+    MisTutoriasComponent,
+    ListadoTutoriasComponent,
+    PagarTutoriaComponent,
+    HistorialComponent,
+    ReporteComponent,
+    ActualizarTutoriaComponent
   ],
   imports: [
     BrowserModule,

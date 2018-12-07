@@ -1,5 +1,5 @@
 <form [formGroup]="formulario" class="ui form formulario">
-  <h1>Registrar Tutoría</h1>
+  <h1>Actualizar Tutoría</h1>
   <div class="two fields">
     <div class="field" [ngClass]="{'error': formulario.controls['titulo'].errors && formulario.controls['titulo'].touched }">
       <label>Título</label>
@@ -25,7 +25,7 @@
       <div class="ui right labeled input">
         <label for="precio" class="ui label">S/.</label>
         <input formControlName="precio" name="precio" type="text" placeholder="Precio" id="precio">
-       
+
       </div>
     </div>
   </div>
@@ -53,22 +53,23 @@
   </div>
 
   <div class="two fields">
-  <div class="field" [ngClass]="{'error': formulario.controls['ubicacion'].errors && formulario.controls['ubicacion'].touched }">
-    <label>Ubicación</label>
-    <input formControlName="ubicacion" name="ubicacion" type="text" placeholder="Ubicación">
+    <div class="field" [ngClass]="{'error': formulario.controls['ubicacion'].errors && formulario.controls['ubicacion'].touched }">
+      <label>Ubicación</label>
+      <input formControlName="ubicacion" name="ubicacion" type="text" placeholder="Ubicación">
+    </div>
+    <div class="field" [ngClass]="{'error': formulario.controls['cantidad'].errors && formulario.controls['cantidad'].touched }">
+      <label>Cantidad</label>
+      <input formControlName="cantidad" name="cantidad" type="number" placeholder="Cantidad de Alumnos">
+    </div>
   </div>
-  <div class="field" [ngClass]="{'error': formulario.controls['cantidad'].errors && formulario.controls['cantidad'].touched }">
-    <label>Cantidad</label>
-    <input formControlName="cantidad" name="cantidad" type="number" placeholder="Cantidad de Alumnos">
-  </div>
-</div>
 
   <div class="field" [ngClass]="{'error': formulario.controls['descripcion'].errors && formulario.controls['descripcion'].touched }">
     <label>Descripción</label>
     <textarea rows="2" formControlName="descripcion" name="descripcion"></textarea>
   </div>
 
-  <button class="fluid ui button primary" type="submit" (click)="publicarTutoria()">Registrar</button>
+  <button class="fluid ui button primary" type="submit" (click)="actualizarTutoria()">Actualizar</button><br>
+  <button class="fluid ui button red" type="button" (click)="eliminar()">Eliminar</button>
 
 
   <!-- Mensajes de errores -->

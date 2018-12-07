@@ -1,28 +1,31 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Usuario } from 'src/app/interfaces/usuario.interface';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import { Tutoria } from 'src/app/interfaces/tutoria.interface';
 import { TutoriaService } from 'src/app/services/tutoria.service';
-import { UsuarioService } from 'src/app/services/usuario.service';
-import { Usuario } from 'src/app/interfaces/usuario.interface';
-import { TutorService } from 'src/app/services/tutor.service';
-import { Tutor } from 'src/app/interfaces/tutor.interface';
-import { Router } from '@angular/router';
-declare var $: any;
 
 @Component({
-  selector: 'app-publicar-tutoria',
-  templateUrl: './publicar-tutoria.component.html',
-  styleUrls: ['./publicar-tutoria.component.css']
+  selector: 'app-actualizar-tutoria',
+  templateUrl: './actualizar-tutoria.component.html',
+  styleUrls: ['./actualizar-tutoria.component.css']
 })
-export class PublicarTutoriaComponent implements OnInit {
+export class ActualizarTutoriaComponent implements OnInit {
 
+  idTutoria: number;
   formulario: FormGroup;
-  tutoria: Tutoria;
-  onSubmit: boolean = false;
   usuario: Usuario = null;
+  onSubmit: boolean = false;
+  tutoria: Tutoria;
 
-  constructor(private router: Router, private _tutoriaService: TutoriaService, private _usuarioService: UsuarioService, private tutorService: TutorService) {
-    this.usuario = _usuarioService.usuario;
+  constructor(private router:Router,private activateRoute: ActivatedRoute, private _usuarioService: UsuarioService, private _tutoriaService: TutoriaService) {
+    this.activateRoute.params.subscribe(params => {
+      this.idTutoria = params["idTutoria"];
+      console.log(this.idTutoria);
+    });
+
+    this.usuario = this._usuarioService.usuario;
     this.formulario = new FormGroup({
       'titulo': new FormControl('', [Validators.required]),
       'categoria': new FormControl('', [Validators.required]),
@@ -37,35 +40,9 @@ export class PublicarTutoriaComponent implements OnInit {
   }
 
   ngOnInit() {
-    var today = new Date();
-    var tutor: Tutor = null;
-    this.tutorService.obtenerTutorID(this.usuario.id)
-      .subscribe((data: any) => {
-        tutor = data;
-        console.log(tutor);
-        if (tutor == null) {
-          alert("No es tutor");
-          this.router.navigate(['/home']);
-        } else if (!tutor.isAceptado) {
-          alert("Todavia no es un Tutor aceptado");
-          this.router.navigate(['/home']);
-        }
-      });
-
-    /* $(document).ready(function () {
-      $('#fecha').calendar({
-        type: 'date',
-        minDate: today
-      });
-      $('#hora').calendar({
-        type: 'time'
-      });
-    }); */
   }
 
-
-  publicarTutoria() {
-
+  actualizarTutoria() {
     if (this.formulario.invalid) {
       alert("Se encontraron errores, revisar por favor.");
     }
@@ -75,6 +52,7 @@ export class PublicarTutoriaComponent implements OnInit {
     console.log(this.formulario);
 
     this.tutoria = {
+      idTutoria: this.idTutoria,
       tituloTutoria: this.formulario.controls['titulo'].value,
       categoriaTutoria: this.formulario.controls['categoria'].value,
       Foto: this.formulario.controls['foto'].value,
@@ -89,13 +67,21 @@ export class PublicarTutoriaComponent implements OnInit {
 
     console.log(this.tutoria);
 
-    this._tutoriaService.registrarTutoria(this.tutoria)
+    this._tutoriaService.actualizarTutoria(this.tutoria)
       .subscribe(data => {
         console.log(data);
         this.router.navigate(['/tutor','mis-tutorias']);
       },
         error => console.error(error));
-
   }
 
+  eliminar() {
+
+    this._tutoriaService.culminarTutoria(this.idTutoria)
+      .subscribe((data: any) => {
+        console.log(data);
+        this.router.navigate(['/tutor','mis-tutorias']);
+      });
+
+  }
 }
